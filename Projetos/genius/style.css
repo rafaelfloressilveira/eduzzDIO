@@ -13,10 +13,39 @@ body {
 
 .genius {
     display: grid;
-    grid-template-areas: "green red" "yellow blue";
+    grid-template-areas: "b y" "r g";
+    grid-gap: 10px;
     border: 1px solid #ffffff;
     background-color: #ffffff;
     border-radius: 100%;
     width: 700px;
     height: 700px;
+}
+
+.blue {
+    grid-area: b;
+    background-color:blue;
+    border-bottom-right-radius: 100%;
+}
+
+.yellow {
+    grid-area: y;
+    background-color:yellow;
+    border-bottom-left-radius: 100%;
+}
+
+.red {
+    grid-area: r;
+    background-color:red;
+    border-top-right-radius: 100%;
+}
+
+.green {
+    grid-area: g;
+    background-color:green;
+    border-top-left-radius: 100%;
+}
+
+.selected {
+    opacity: 0.8;
 }
