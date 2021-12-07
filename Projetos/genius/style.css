@@ -25,25 +25,25 @@ body {
 .blue {
     grid-area: b;
     background-color:blue;
-    border-bottom-right-radius: 100%;
+    border-top-left-radius: 100%;
 }
 
 .yellow {
     grid-area: y;
     background-color:yellow;
-    border-bottom-left-radius: 100%;
+    border-top-right-radius: 100%;
 }
 
 .red {
     grid-area: r;
     background-color:red;
-    border-top-right-radius: 100%;
+    border-bottom-left-radius: 100%;
 }
 
 .green {
     grid-area: g;
     background-color:green;
-    border-top-left-radius: 100%;
+    border-bottom-right-radius: 100%;
 }
 
 .selected {
