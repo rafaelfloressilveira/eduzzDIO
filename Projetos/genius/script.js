@@ -45,7 +45,7 @@ let checkOrder = () => {
     }
     if(clickedOrder.length == order.length) {
         alert("Pontuação: ${score}\nVocê acertou! Próximo nível...");
-        nextlevel();
+        nextLevel();
     }
 }
 
@@ -56,7 +56,53 @@ let click = (color) => {
 
     setTimeout(() => {
         createColorElement(color).classList.remove("selected");
-    })
+        checkOrder();
+    }, 250);
 
-    checkOrder();
+    
 }
+
+// retorno de cor
+let createColorElement = (color) => {
+    if(color == 0) {
+        return blue;
+    } else if(color == 1) {
+        return yellow;
+    } else if (color == 2) {
+        return red;
+    } else if (color == 3) {
+        return green;
+    }
+}
+
+// proximo nível
+let nextLevel = () => {
+    score++;
+    shuffleOrder();
+}
+
+// game over
+let gameOver = () => {
+    alert("Pontuação: ${score}!\nVocê perdeu\nClique em OK para iniciar um novo jogo");
+    order = [];
+    clickedOrder = [];
+    
+    playGame();
+}
+
+// Inicio de jogo
+let playGame = () => {
+    alert("Iniciando novo jogo...");
+    score = 0;
+
+    nextLevel();
+}
+
+// eventos
+
+blue.addEventListener("click", click(0));
+yellow.addEventListener("click", click(1));
+red.addEventListener("click", click(2));
+green.addEventListener("click", click(3));
+
+playGame();
