@@ -7,14 +7,14 @@ let score = 0;
 // 2 - r
 // 3 - g
 
-const blue = document.querySelector(".blue");
-const yellow = document.querySelector(".yellow");
-const red = document.querySelector(".red");
-const green = document.querySelector(".green");
+const blue = document.querySelector('.blue');
+const yellow = document.querySelector('.yellow');
+const red = document.querySelector('.red');
+const green = document.querySelector('.green');
 
 // cria ordem aleatória de cores
 let shuffleOrder = () => {
-    let colorOrder = Math.floor(Math.random() * 4)
+    let colorOrder = Math.floor(Math.random() * 4);
     order[order.length] = colorOrder;
     clickedOrder = [];
 
@@ -28,11 +28,11 @@ let shuffleOrder = () => {
 let lightColor = (element, number) => {
     number = number * 500;
     setTimeout(() => {
-        element.classList.add("selected");
-    }, tempo - 250);
+        element.classList.add('selected');
+    }, number - 500);
     setTimeout(() => {
-        element.classList.remove("selected");
-    });    
+        element.classList.remove('selected');
+    }, number - 100);    
 }
 
 // checa ordem correta de click
@@ -44,7 +44,7 @@ let checkOrder = () => {
         }
     }
     if(clickedOrder.length == order.length) {
-        alert("Pontuação: ${score}\nVocê acertou! Próximo nível...");
+        alert(`Pontuação: ${score}\nVocê acertou! Próximo nível...`);
         nextLevel();
     }
 }
@@ -52,10 +52,9 @@ let checkOrder = () => {
 // click do usuário
 let click = (color) => {
     clickedOrder[clickedOrder.length] = color;
-    createColorElement(color).classList.add("selected");
-
+    createColorElement(color).classList.add('selected');
     setTimeout(() => {
-        createColorElement(color).classList.remove("selected");
+        createColorElement(color).classList.remove('selected');
         checkOrder();
     }, 250);
 
@@ -83,7 +82,7 @@ let nextLevel = () => {
 
 // game over
 let gameOver = () => {
-    alert("Pontuação: ${score}!\nVocê perdeu\nClique em OK para iniciar um novo jogo");
+    alert(`Pontuação: ${score}!\nVocê perdeu\nClique em OK para iniciar um novo jogo`);
     order = [];
     clickedOrder = [];
     
@@ -98,11 +97,12 @@ let playGame = () => {
     nextLevel();
 }
 
-// eventos
+// eventos cliques
 
-blue.addEventListener("click", click(0));
-yellow.addEventListener("click", click(1));
-red.addEventListener("click", click(2));
-green.addEventListener("click", click(3));
+blue.onclick = () => click(0);
+yellow.onclick = () => click(1);
+red.onclick = () => click(2);
+green.onclick = () => click(3);
+
 
 playGame();
